@@ -1,7 +1,7 @@
 import random
 import re
 from typing import Dict, List, Optional
-from models import AIAnalysisResult, MetricBreakdown
+from server.models import AIAnalysisResult, MetricBreakdown
 
 class AIAnalyzer:
     def __init__(self, api_key: str = None):

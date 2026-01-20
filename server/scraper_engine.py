@@ -5,7 +5,7 @@ import asyncio
 import random
 from typing import List, Dict, Optional, Set
 from collections import deque
-from models import HeuristicResult
+from server.models import HeuristicResult
 
 class ScraperEngine:
     def __init__(self):
@@ -123,7 +123,5 @@ class ScraperEngine:
                     oldest = self.history_queue.popleft()
                     self.history.discard(oldest)
                 self.history_queue.append(r.url)
-        
-        return results
         
         return results

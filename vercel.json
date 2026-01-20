@@ -1,9 +1,13 @@
 {
-    "version": 2,
-    "rewrites": [
-        {
-            "source": "/api/(.*)",
-            "destination": "/api/index.py"
-        }
-    ]
+  "version": 2,
+  "functions": {
+    "api/discover.py": {
+      "maxDuration": 60
+    }
+  },
+  "builds": [
+    { "src": "frontend/package.json", "use": "@vercel/next" },
+    { "src": "api/index.py", "use": "@vercel/python" },
+    { "src": "api/discover.py", "use": "@vercel/python" }
+  ]
 }

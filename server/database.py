@@ -1,6 +1,11 @@
 import os
 from dotenv import load_dotenv
-from supabase import create_client, Client
+
+try:
+    from supabase import Client, create_client
+except Exception:  # optional dependency
+    Client = object  # type: ignore[assignment]
+    create_client = None
 
 load_dotenv()
 
@@ -8,7 +13,7 @@ class DatabaseManager:
     def __init__(self):
         url = os.environ.get("SUPABASE_URL")
         key = os.environ.get("SUPABASE_KEY")
-        if url and key:
+        if url and key and create_client:
             self.supabase: Client = create_client(url, key)
         else:
             self.supabase = None
