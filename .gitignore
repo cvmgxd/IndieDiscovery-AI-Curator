@@ -8,8 +8,11 @@ venv/
 # Next.js
 .next/
 node_modules/
+**/.next/
+**/node_modules/
 out/
 build/
+.vercel/
 
 # IDEs
 .vscode/

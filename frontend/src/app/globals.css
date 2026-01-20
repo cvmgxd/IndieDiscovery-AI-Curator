@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  /* Win98 Classic Colors */
+  --win-bg: #c0c0c0;
+  --win-desktop: #008080;
+  --win-border-light: #ffffff;
+  --win-border-shadow: #808080;
+  --win-border-dark: #000000;
+  --win-title-blue: #000080;
+  --win-title-blue-light: #1084d0;
+  --win-text: #000000;
+  --win-text-white: #ffffff;
+
+  /* Modern Accent (8-bit glow) */
+  --accent-neon: #ff00ff;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  image-rendering: pixelated;
+}
+
+body {
+  background-color: var(--win-desktop);
+  color: var(--win-text);
+  font-family: 'VT323', monospace;
+  font-size: 1.2rem;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+h1,
+h2,
+h3,
+button {
+  font-family: 'Press Start 2P', cursive;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+}
+
+/* Win98 Bevels */
+.win98-outset {
+  background: var(--win-bg);
+  box-shadow:
+    inset 1px 1px 0px var(--win-border-light),
+    inset -1px -1px 0px var(--win-border-shadow),
+    1px 1px 0px var(--win-border-dark);
+}
+
+.win98-inset {
+  background: var(--win-bg);
+  box-shadow:
+    inset 1px 1px 0px var(--win-border-shadow),
+    inset -1px -1px 0px var(--win-border-light);
+  padding: 4px;
+}
+
+/* Window Component */
+.window {
+  padding: 3px;
+  background: var(--win-bg);
+  box-shadow:
+    0.5px 0.5px 0px 0.5px var(--win-border-light) inset,
+    -0.5px -0.5px 0px 0.5px var(--win-border-shadow) inset,
+    1px 1px 0px 1px var(--win-border-dark);
+}
+
+.window-header {
+  height: 20px;
+  background: linear-gradient(90deg, var(--win-title-blue), var(--win-title-blue-light));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4px;
+  margin-bottom: 2px;
+}
+
+.window-title {
+  color: var(--win-text-white);
+  font-size: 0.7rem;
+  font-family: 'Press Start 2P', cursive;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.window-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.window-button {
+  width: 16px;
+  height: 14px;
+  background: var(--win-bg);
+  border: 1px solid var(--win-border-shadow);
+  box-shadow: inset 1px 1px 0 var(--win-border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  cursor: pointer;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+
+/* 8-bit Buttons */
+button,
+.win98-button {
+  padding: 8px 16px;
+  background: var(--win-bg);
+  border: none;
+  cursor: pointer;
+  box-shadow:
+    inset 2px 2px 0 var(--win-border-light),
+    inset -2px -2px 0 var(--win-border-shadow),
+    1px 1px 0 var(--win-border-dark);
+  font-size: 0.7rem;
+  transition: all 0.1s;
+  display: inline-block;
+  text-decoration: none;
+  color: var(--win-text);
+  text-align: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
+button:active,
+.win98-button:active {
+  box-shadow:
+    inset 2px 2px 0 var(--win-border-shadow),
+    1px 1px 0 var(--win-border-light);
+  transform: translate(1px, 1px);
+}
+
+button:hover,
+.win98-button:hover {
+  filter: brightness(1.1);
+}
+
+/* Extra Polish */
+.pixel-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30px;
+  background: var(--win-bg);
+  border-top: 2px solid var(--win-border-light);
+  display: flex;
+  align-items: center;
+  padding: 0 2px;
+  z-index: 1000;
+  box-shadow: inset 1px 1px 0 var(--win-border-shadow);
+}
+
+.start-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: bold;
+  height: 24px;
+  padding: 0 6px;
+  font-size: 0.7rem;
+}
+
+.tray {
+  margin-left: auto;
+  padding: 0 10px;
+  border-left: 1px solid var(--win-border-shadow);
+  box-shadow: inset 1px 1px 0 var(--win-border-light);
+  height: 22px;
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+}
+
+.gradient-text {
+  /* No gradients in Win98 */
+  color: inherit;
+}
