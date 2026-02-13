@@ -21,3 +21,6 @@ build/
 # OS
 Thumbs.db
 .DS_Store
+
+# Godot
+*.meta
