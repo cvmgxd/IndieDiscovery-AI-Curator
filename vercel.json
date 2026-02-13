@@ -1,23 +1,12 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "version": 2,
+  "installCommand": "npm --prefix frontend install",
+  "buildCommand": "npm --prefix frontend run build",
+  "outputDirectory": "frontend/out",
   "functions": {
     "api/discover.py": {
       "maxDuration": 60
     }
-  },
-  "builds": [
-    { "src": "frontend/package.json", "use": "@vercel/next" },
-    { "src": "api/index.py", "use": "@vercel/python" },
-    { "src": "api/discover.py", "use": "@vercel/python" }
-  ],
-  "routes": [
-    { "src": "^/api/discover$", "dest": "api/discover.py" },
-    { "src": "^/api/?$", "dest": "api/index.py" },
-    { "handle": "filesystem" },
-    { "src": "^/$", "dest": "frontend" },
-    { "src": "^/(.*)$", "dest": "frontend/$1" }
-  ],
-  "env": {
-    "PYTHONPATH": "."
   }
 }
